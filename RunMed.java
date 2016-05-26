@@ -20,7 +20,8 @@ public class RunMed {
      *****************************************************/
     public RunMed() 
     { 
-
+	leftHeap = new ALMaxHeap();
+	rightHeap = new ALMinHeap();
     }//O(1)
 
 
@@ -30,7 +31,7 @@ public class RunMed {
      *****************************************************/
     public double getMedian() 
     {
-
+	return (leftHeap.peekMax()+rightHeap.peekMin())/2.0;
     }//O(1)
 
 
@@ -77,13 +78,3 @@ public class RunMed {
     }//end main()
 
 }//end class RunMed
-
-
-
-    /*****************************************************
-     * 
-     *****************************************************/
-    // (  )
-    // {
-    // 	/*** YOUR IMPLEMENTATION HERE ***/
-    // }//O(?)
