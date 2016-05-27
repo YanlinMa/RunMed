@@ -31,7 +31,15 @@ public class RunMed {
      *****************************************************/
     public double getMedian() 
     {
-	return (leftHeap.peekMax()+rightHeap.peekMin())/2.0;
+    	if (leftHeap.size()>rightHeap.size()) {
+    		return leftHeap.peekMax();
+    	}
+    	else if (rightHeap.size()>leftHeap.size()) {
+    		return rightHeap.peekMin();
+    	}
+    	else {
+		return (leftHeap.peekMax()+rightHeap.peekMin())/2.0;
+    	}
     }//O(1)
 
 
@@ -42,8 +50,9 @@ public class RunMed {
      *                getMedian() can run in constant time
      *****************************************************/
     public void insert( int addVal )
-    {   
-     }//O(?)
+    {
+    	if (addVal)
+    }//O(?)
 
 
 
@@ -53,7 +62,11 @@ public class RunMed {
      *****************************************************/
     public boolean isEmpty() 
     {
-
+	if (leftHeap.isEmpty()&&rightHeap.isEmpty()) {
+		return true;
+	}
+	else
+		return false;
     }//O(?)
 
 
