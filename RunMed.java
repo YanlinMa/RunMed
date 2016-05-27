@@ -51,7 +51,8 @@ public class RunMed {
      *****************************************************/
     public void insert( int addVal )
     {
-    	if (addVal <= leftHeap.peekMax()) leftHeap.add(addVal);
+    	if (isEmpty) leftHeap.add(addVal);
+    	else if (addVal <= leftHeap.peekMax()) leftHeap.add(addVal);
     	else rightHeap.add(addVal);
     }//O(?)
 
