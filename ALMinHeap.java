@@ -147,7 +147,9 @@ public class ALMinHeap {
 	return retVal;
     }//O(logn)
 
-
+    public int size() {
+	return _heap.size();
+    }
 
     /*****************************************************
      * minChildPos(int)  ---  helper fxn for removeMin()
