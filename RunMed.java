@@ -51,8 +51,8 @@ public class RunMed {
      *****************************************************/
     public void insert( int addVal )
     {
-    	if (addVal =< leftHeap.peekMax()) leftHeap.add(addVal);
-    	else rightHeap.add(addVal)
+    	if (addVal <= leftHeap.peekMax()) leftHeap.add(addVal);
+    	else rightHeap.add(addVal);
     }//O(?)
 
 
@@ -75,8 +75,7 @@ public class RunMed {
     //main method for testing
     public static void main( String[] args ) {
 
-	/*~~~V~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~V~~~
-        RunMed med = new RunMed();
+	RunMed med = new RunMed();
         med.insert(1);
 	System.out.println( med.getMedian() ); //1
         med.insert(3);
@@ -87,7 +86,8 @@ public class RunMed {
 	System.out.println( med.getMedian() ); //4
         med.insert(9);
 	System.out.println( med.getMedian() ); //5
-	~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~*/
+	/*~~~V~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~V~~~
+	  ~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~*/
 
     }//end main()
 
