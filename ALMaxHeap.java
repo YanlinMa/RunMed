@@ -47,7 +47,9 @@ public class ALMaxHeap {
 	return lvlOrdTrav;
     }//O(n)
 
-
+    public int size() {
+	return _heap.size();
+    }
 
     /*****************************************************
      * boolean isEmpty()
