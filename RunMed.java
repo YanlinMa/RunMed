@@ -1,3 +1,9 @@
+/*
+Maverick -- Dorothy Ng, Denis Duman, Andrea Ma
+APCS2 pd10
+HW46 -- Running M[edi]an
+2016-05-26
+ */
 /*****************************************************
  * class RunMed
  * Implements an online algorithm to track the median of a growing dataset
@@ -32,13 +38,19 @@ public class RunMed {
     public double getMedian() 
     {
     	if (leftHeap.isEmpty()) {
-    		return (double)(rightHeap.peekMin());
+	    return (double)(rightHeap.peekMin());
     	}
-    	if (rightHeap.isEmpty()) {
-    		return (double)(leftHeap.peekMax());
+    	else if (rightHeap.isEmpty()) {
+	    return (double)(leftHeap.peekMax());
     	}
-    	else {
-		return (leftHeap.peekMax()+rightHeap.peekMin())/2.0;
+	else if (leftHeap.size() > rightHeap.size()){
+	    return (double)(leftHeap.peekMax());
+	}
+	else if (leftHeap.size() < rightHeap.size()){
+	    return (double)(rightHeap.peekMin());
+	}
+	else {
+	    return (leftHeap.peekMax()+rightHeap.peekMin())/2.0;
     	}
     }//O(1)
 
@@ -52,10 +64,21 @@ public class RunMed {
     public void insert( int addVal )
     {
     	if (isEmpty()) leftHeap.add(addVal);
-    	else if (addVal <= leftHeap.peekMax()) leftHeap.add(addVal);
+    	else if (getMedian() > addVal) leftHeap.add(addVal);
     	else rightHeap.add(addVal);
-    }//O(?)
-
+	if (leftHeap.size()-rightHeap.size() > 1) {
+	    rightHeap.add(leftHeap.removeMax());
+	}
+	else if (rightHeap.size()-leftHeap.size() > 1) {
+	    leftHeap.add(rightHeap.removeMin());
+	}
+	//System.out.println();
+	//System.out.println("left");
+	//System.out.println(leftHeap);
+	//System.out.println("right");
+	//System.out.println(rightHeap);
+    }//O(1)
+    
 
 
     /*****************************************************
@@ -65,11 +88,11 @@ public class RunMed {
     public boolean isEmpty() 
     {
 	if (leftHeap.isEmpty()&&rightHeap.isEmpty()) {
-		return true;
+	    return true;
 	}
 	else
-		return false;
-    }//O(?)
+	    return false;
+    }//O(1)
 
 
 
